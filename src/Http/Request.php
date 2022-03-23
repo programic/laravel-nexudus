@@ -22,4 +22,9 @@ class Request
     {
         return $this->http->post($url, $bodyParams);
     }
+
+    public function references(): References
+    {
+        return new References($this->http);
+    }
 }
