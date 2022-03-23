@@ -1,8 +1,8 @@
 # Programic - Laravel Nexudus
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/programic/laravel-nexudus.svg?style=flat-square)](https://packagist.org/packages/programic/laravel-nexudus)
-[![Tests](https://github.com/programic/laravel-nexudus/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/programic/laravel-nexudus/actions/workflows/tests.yml)
-![](https://github.com/programic/laravel-nexudus/workflows/Run%20Tests/badge.svg?branch=master)
+[![Tests](https://github.com/programic/laravel-nexudus/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/programic/laravel-nexudus/actions/workflows/tests.yml)
+![](https://github.com/programic/laravel-nexudus/workflows/Run%20Tests/badge.svg?branch=main)
 [![Total Downloads](https://img.shields.io/packagist/dt/programic/laravel-nexudus.svg?style=flat-square)](https://packagist.org/packages/programic/laravel-nexudus)
 
 This package is a Laravel extension

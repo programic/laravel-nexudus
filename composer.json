@@ -1,0 +1,52 @@
+{
+    "name": "programic/laravel-nexudus",
+    "license": "proprietary",
+    "type": "package",
+    "description": "Laravel extension for Nexudus API",
+    "keywords": [
+        "programic",
+        "laravel",
+        "nexudus"
+    ],
+    "readme": "README.md",
+    "authors": [
+        {
+            "name": "Programic",
+            "email": "development@programic.com",
+            "homepage": "https://programic.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^8.0",
+        "laravel/framework" : "^8.0|^9.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Programic\\Nexudus\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Programic\\Nexudus\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Programic\\Nexudus\\NexudusServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
