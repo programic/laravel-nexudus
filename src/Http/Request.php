@@ -2,12 +2,13 @@
 
 namespace Programic\Nexudus\Http;
 
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class Request
 {
-    protected Http $http;
+    protected PendingRequest $http;
 
     public function __construct() {
         $this->http = Http::nexudus();
@@ -21,10 +22,5 @@ class Request
     public function post(string $url, array $bodyParams = []): Response
     {
         return $this->http->post($url, $bodyParams);
-    }
-
-    public function references(): References
-    {
-        return new References($this->http);
     }
 }

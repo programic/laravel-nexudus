@@ -3,6 +3,7 @@
 namespace Programic\Nexudus;
 
 use Illuminate\Http\Client\Response;
+use Programic\Nexudus\Http\References;
 use Programic\Nexudus\Http\Request;
 
 class Nexudus
@@ -14,13 +15,18 @@ class Nexudus
         $this->http = new Request();
     }
 
-    public function get(string $url, array $queryParams = null): Response
+    public function get(string $url, array $queryParams = []): Response
     {
         return $this->http->get($url, $queryParams);
     }
 
-    public function post(string $url, array $postParams = null): Response
+    public function post(string $url, array $postParams = []): Response
     {
         return $this->http->post($url, $postParams);
+    }
+
+    public function references(): References
+    {
+        return new References($this->http);
     }
 }

@@ -2,25 +2,55 @@
 
 namespace Programic\Nexudus\Http;
 
-use Illuminate\Support\Facades\Http;
-use Programic\Nexudus\Http\References\FloorPlanDesks;
-use Programic\Nexudus\Http\References\FloorPlans;
+use Programic\Nexudus\Exceptions\ReferenceNotFoundException;
 
+/**
+ * @method getBusiness(array $queryParams): Illuminate\Http\Client\Response
+ * @method getFloorPlans(array $queryParams): Illuminate\Http\Client\Response
+ * @method getFloorPlanDesks(array $queryParams): Illuminate\Http\Client\Response
+ * @method getResources(array $queryParams): Illuminate\Http\Client\Response
+ * @method getResource(int $resourceId): Illuminate\Http\Client\Response
+ * @method getBookings(array $queryParams): Illuminate\Http\Client\Response
+ * @method getTeams(array $queryParams): Illuminate\Http\Client\Response
+ * @method getCoWorkers(array $queryParams): Illuminate\Http\Client\Response
+ */
 class References
 {
-    public function __construct(
-        protected Http $http
+    private array $methods = ['get', 'post', 'patch', 'put', 'delete'];
+
+    public function  __construct(
+        protected Request $http
     ) {
         //
     }
 
-    public function floorplans(array $queryParams = []): FloorPlans
-    {
-        return new FloorPlans($this->http, $queryParams);
+    public function __call(string $name, array $arguments) {
+        $method = $this->getMethod($name);
+        $name = str_replace($method, '', $name);
+
+        $referenceName = "Programic\Nexudus\Http\References\\$name";
+
+        if (class_exists($referenceName)) {
+            $instance = new $referenceName();
+
+            if (method_exists($instance, $method)) {
+                return $instance->$method($this->http, $arguments[0]);
+            }
+
+            return $instance($this->http, $arguments[0]);
+        }
+
+        throw new ReferenceNotFoundException($name . ' reference not found');
     }
 
-    public function floorplandesks(array $queryParams = []): FloorPlanDesks
+    private function getMethod(string $name): ?string
     {
-        return new FloorPlanDesks($this->http, $queryParams);
+        foreach ($this->methods as $method) {
+            if (str_starts_with($name, $method)) {
+                return $method;
+            }
+        }
+
+        return null;
     }
 }

@@ -3,11 +3,11 @@
 namespace Programic\Nexudus\Http\References;
 
 use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Http;
+use Programic\Nexudus\Http\Request;
 
 class FloorPlans
 {
-    public function __invoke(Http $http, array $queryParams): Response
+    public function __invoke(Request $http, array $queryParams): Response
     {
         return $http->get('api/sys/floorplans', $queryParams);
     }
