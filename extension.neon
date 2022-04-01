@@ -1,0 +1,5 @@
+services:
+    -
+        class: Programic\Nexudus\Reflection\ReferenceClassReflectionExtension
+        tags:
+            - phpstan.broker.methodsClassReflectionExtension

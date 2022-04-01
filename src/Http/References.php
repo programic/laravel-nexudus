@@ -3,6 +3,7 @@
 namespace Programic\Nexudus\Http;
 
 use Programic\Nexudus\Exceptions\ReferenceNotFoundException;
+use Programic\Nexudus\Interfaces\ReferenceInterface;
 
 /**
  * @method getBusiness(array $queryParams): Illuminate\Http\Client\Response

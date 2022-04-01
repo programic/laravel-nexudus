@@ -20,6 +20,9 @@ Add Nexudus credentials to your services config and .env:
     'authentication' => env('NEXUDUS_AUTH', 'basic'),
     'username' => env('NEXUDUS_USERNAME'),
     'password' => env('NEXUDUS_PASSWORD'),
+    'attempts' => 3, // Attempt for HTTP API calls to Nexudus
+    'sleep' => 100, // Sleep between attempts
+    
 ],
 ```
 
