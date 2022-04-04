@@ -15,8 +15,8 @@ class NexudusServiceProvider extends ServiceProvider
     public function boot()
     {
         $config = config('services.nexudus');
-        $username = data_get($config, 'username');
-        $password = data_get($config, 'password');
+        $username = data_get($config, 'username', '');
+        $password = data_get($config, 'password', '');
         $attempts = data_get($config, 'attempts', 3);
         $sleep = data_get($config, 'sleep', 100);
         $url = data_get($config, 'baseUrl', 'https://spaces.nexudus.com');
