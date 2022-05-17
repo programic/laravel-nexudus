@@ -25,6 +25,16 @@ class Nexudus
         return $this->http->post($url, $postParams);
     }
 
+    public function delete(string $url, array $queryParams = []): Response
+    {
+        return $this->http->delete($url, $queryParams);
+    }
+
+    public function put(string $url, array $postParams = []): Response
+    {
+        return $this->http->put($url, $postParams);
+    }
+
     public function references(): References
     {
         return new References($this->http);

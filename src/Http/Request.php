@@ -23,4 +23,14 @@ class Request
     {
         return $this->http->post($url, $bodyParams);
     }
+
+    public function put(string $url, array $bodyParams = []): Response
+    {
+        return $this->http->put($url, $bodyParams);
+    }
+
+    public function delete(string $url, array $queryParams = []): Response
+    {
+        return $this->http->delete($url, $queryParams);
+    }
 }
